@@ -1,0 +1,65 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+.layer1 {
+    background-color: gainsboro;  /* Цвет фона слоя */
+    padding: 5px; /* Поля вокруг текста */
+    float: left; /* Обтекание по правому краю */
+    width: 25%; /* Ширина слоя */
+    outline: 2px solid cornflowerblue;
+}
+.layer2 {
+    /*background-color: #c0c0c0; !* Цвет фона слоя *!*/
+    padding: 5px; /* Поля вокруг текста */
+    width: 30%; /* Ширина слоя */
+    float: right; /* Обтекание по правому краю */
+    outline: 2px solid cornflowerblue;
+}
+.clear {
+    clear: left; /* Отмена обтекания */
+}
+li {
+    /*list-style-type: none;*/ /*забирає нумерацію із списку*/
+}
+ol {
+    counter-reset: list1;
+}
+ol li:before {
+    counter-increment: list1;
+    content: counter(list1) ".";
+}
+ol ol {
+    counter-reset: list2;
+}
+ol ol li:before {
+    counter-increment: list2;
+    content: counter(list1) "." counter(list2);
+}
+.bold {
+    font-weight: bold;
+    }
+h2 {
+    color: red;
+}
+.no123 {
+    color: green;
+}
+.yes123 {
+    color: #FFFF00;
+}
+.thk {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 5rem;
+    color: rgb(255,0,0);
+    background-color: black;
+}
+h2:hover {
+    color: black;
+}
+.span {
+    color: deepskyblue;
+}
+section {
+    background: yellow;
+}

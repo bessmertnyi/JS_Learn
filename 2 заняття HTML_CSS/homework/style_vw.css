@@ -1,0 +1,48 @@
+/*header*/
+/*header2*/
+/*sel_1*/
+
+div{
+    background: yellow;
+    margin: 0;
+    padding: 0;
+}
+.header{
+    text-align: left;
+    }
+.header2{
+    display: flex;
+    border: 3px solid red;
+}
+.sel_1{
+    display: inline;
+    font-size: 92%;s
+    font-weight: normal;
+}
+.sel_2{
+    display: flex;
+}
+.border{
+    border: 1px solid red;
+}
+
+li {
+    list-style-type: none;*/ /*забирає нумерацію із списку*/
+}
+ol {
+    counter-reset: list1;
+}
+ol li:before {
+    counter-increment: list1;
+    content: counter(list1) ".";
+}
+ol ol {
+    counter-reset: list2;
+}
+ol ol li:before {
+    counter-increment: list2;
+    content: counter(list1) "." counter(list2);
+}
+.col{
+    flex-direction: column;
+}

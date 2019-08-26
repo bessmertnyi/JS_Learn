@@ -1,0 +1,214 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0 !important;
+}
+.bold{
+    font-weight: bold;
+}
+.mt-1{
+    margin-top: 1rem;
+}
+.p-2,
+.py-2,
+.pt-2{
+    padding-top: .5rem;
+}
+
+.p-2,
+.px-2,
+.pr-2{
+    padding-right: .5rem;
+}
+
+.p-2,
+.py-2,
+.pb-2{
+    padding-bottom: .5rem;
+}
+
+.p-2,
+.px-2,
+.pl-2{
+    padding-left: .5rem;
+}
+
+.p-3,
+.py-3,
+.pt-3{
+    padding-top: 1rem;
+}
+
+.p-3,
+.px-3,
+.pr-3{
+    padding-right: 1rem;
+}
+
+.p-3,
+.py-3,
+.pb-3{
+    padding-bottom: 1rem;
+}
+
+.p-3,
+.px-3,
+.pl-3{
+    padding-left: 1rem;
+}
+
+.p-4,
+.py-4,
+.pt-4{
+    padding-top: 1.5rem;
+}
+
+.p-4,
+.px-4,
+.pr-4{
+    padding-right: 1.5rem;
+}
+
+.p-4,
+.py-4,
+.pb-4{
+    padding-bottom: 1.5rem;
+}
+
+.p-4,
+.px-4,
+.pl-4{
+    padding-left: 1.5rem;
+}
+.d-flex{
+    display: flex;
+}
+
+.img_logo{
+    width: 200px;
+    height: 160px;
+}
+
+.img{
+    width: 220px;
+    height: 160px;
+    margin-left: -40px;
+}
+
+.header2{
+    width: 100%;
+    flex-direction: column;
+    margin-left: -40px;
+}
+
+.navbar{
+    height: 40%;
+    justify-content: space-between;
+    font-size: 1rem;
+    margin-right: 1rem;
+    padding-top: 1.5rem;
+    flex-shrink: 0;
+}
+.navbar ul{
+    list-style: none;
+    display: inline-flex;
+    padding-bottom: 1rem;
+}
+.navbar ul li{
+    padding-right: 1rem;
+}
+a{
+    text-decoration: none;
+    color: blue;
+    transition: all .25s;
+}
+.navbar a:hover,
+.navbar a:focus {
+    color: blue;
+}
+.nav-left{
+    padding-top: 2px;
+}
+.nav-right{
+    /*background: peachpuff;*/
+}
+
+.vw{
+    height: 50%;
+    padding: 1.5rem .5rem .5rem 0rem;
+}
+
+/*main*/
+
+/*leftbar*/
+
+.aside{
+    padding-left: 1rem;
+    font-size: 14px;
+}
+.barleft{
+    width: 25%;
+    /*height: 100%;*/
+}
+.barleft li{
+    padding-top: 0.33rem;
+}
+.barleft ul{
+    /*padding-left: 1rem;*/
+    list-style: none;
+}
+.barleft a{
+    text-decoration: none;
+    /*color: #222;*/
+    /*transition: all .25s;*/
+}
+.m1_0{
+    margin: 1rem 0;
+}
+
+
+/*CONTENT*/
+
+.content{
+    /*background: skyblue;*/
+}
+
+
+
+
+
+/*INFO*/
+
+.info{
+    width: 28%;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+}
+table{
+    border: 1px solid grey;
+    background-color: #f9f9f9;
+    border-spacing: 8px;
+    font-size: 90%;
+    width: 100%;
+}
+
+
+
+
+.border_img{
+    border: 1px solid black;
+    background-color: #f9f9f9;
+    width: 220px;
+    height: 165px;
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-left: auto;
+    padding-top: .33rem;
+}
+
+.img1{
+    width: 220px;
+    height: 141px;
+}
+

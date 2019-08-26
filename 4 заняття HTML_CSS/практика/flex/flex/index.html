@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flexbox</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="assets/css/style.css">
+	
+	
+</head>
+<body>
+
+	<header>
+		<nav class="nav d-flex justify-content-between px-4 py-3">
+			<div class="site-logo">DarkWeb</div>
+
+			<div class="burger">
+				<span></span>
+			</div>
+
+			<ul class="navbar d-flex">
+				<li><a href="#" class="p-2">Home</a></li>
+				<li><a href="#" class="p-2">About</a></li>
+				<li><a href="#" class="p-2">Gallery</a></li>
+				<li><a href="#" class="p-2">Contacts</a></li>
+			</ul>
+		</nav>
+	</header>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	jQuery(document).ready(function($) {
+		$('.burger').click(function(){
+			$('.navbar').toggleClass('active');
+		});
+	});
+</script>
+
+</body>
+</html>
