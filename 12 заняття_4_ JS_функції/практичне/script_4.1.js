@@ -3,7 +3,7 @@
 /** 1.  створити функцію яка виводить масив */
 
 function arr() {
-    let arrNew = Object.values(arguments)
+    let arrNew = Object.values(arguments);
     console.log(arrNew);
     return arguments
 }
@@ -24,7 +24,7 @@ console.log('__________________________________');
 
 function pushing() {
 
-    let xxx = []
+    let xxx = [];
 
     while (xxx.length < 5) {
         let randomNumber = +(Math.random() * 5).toFixed(0)
@@ -37,7 +37,7 @@ function pushing() {
 
 }
 
-pushing()
+pushing();
 
 console.log('__________________________________');
 
@@ -47,8 +47,8 @@ console.log('__________________________________');
 
 function findMaxNumber() {
 
-    let array = pushing()
-    let bigger = Math.max(...array)
+    let array = pushing(),
+    let bigger = Math.max(...array);
     console.log(...array);
     return bigger
 
@@ -62,7 +62,7 @@ console.log('__________________________________');
 
 function sumatorArr() {
 
-    let plus = pushing()
+    let plus = pushing();
 
     let sum = 0
     for (let i = 0; i < plus.length; i++) {
@@ -73,7 +73,7 @@ function sumatorArr() {
     return sum
 }
 
-arr(sumatorArr())
+arr(sumatorArr());
 
 console.log('__________________________________');
 
@@ -113,7 +113,7 @@ console.log('----------------------------');
 
 function sixTask() {
 
-    let array = [2, 0, 3, 7, 0, 3, 1]
+    let array = [2, 0, 3, 7, 0, 3, 1];
     let resultArray = [];
 
     for (i = 0; i < array.length; i++) {
@@ -131,5 +131,5 @@ function sixTask() {
     return resultArray
 }
 
-arr(...sixTask())
+arr(...sixTask());
  

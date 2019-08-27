@@ -5,7 +5,7 @@ let arr = [];
 let arr2 = [];
 
 while (arr.length < 7){
-    let num = parseInt(Math.random()* (732 - 1) + 8) // заданий діапазон з і до
+    let num = parseInt(Math.random()* (732 - 1) + 8); // заданий діапазон з і до
     arr.push(num)
 }
 
