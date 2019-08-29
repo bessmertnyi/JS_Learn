@@ -89,17 +89,14 @@ newUsers = JSON.parse(newUsers);
 
 
 for (i = 0; i < newUsers.length; i++){
-    newUsers[i].id = makeid(3)
+    newUsers[i].id = +makeid(3)
 }
 
-
-console.log(newUsers);
-console.log('______________________________________________');
-console.log(users);
+/** Р А Н Д О М - можна задати цифри, букви і потім к-сть символів !!! */
 
 function makeid(length) {
     let result           = '';
-    let characters       = '1234567890';
+    let characters       = 'ABCDFGTR1234567890';
     let charactersLength = characters.length;
     for ( let i = 0; i < length; i++ ) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -115,3 +112,27 @@ newUsers.sort(function (el1, el2) {
 
 console.log('______________________________________________');
 console.log(newUsers);
+
+console.log('______________________________________________');
+
+// Array.prototype.pushArray = function() {
+//     var toPush = this.concat.apply([], arguments);
+//     for (var i = 0, len = toPush.length; i < len; ++i) {
+//         this.push(toPush[i]);
+//     }
+// };
+
+console.log(users);
+
+console.log('______________________________________________');
+
+let newArr = [];
+
+for (i = 0; i < users.length; i++){
+    let randomNumber = Math.random()*10;
+    newArr.push({name:users[i].name, age:users[i].age, status:users[i].status, id:makeid(3) });
+    // newArr.push(id = +makeid(2))
+}
+console.log(newArr);
+
+//, age:users[i].age, status:users[i].status
