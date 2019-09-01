@@ -234,11 +234,24 @@ let cars = [
 
 cars.forEach(function (value, index) {
     console.log(value.enginePowerHP, value.price, value.owner.name, value.owner.expYears);
-
 });
 
 
-let anotherHP =[];
+let anotherHP = [];
+
+for (i = 0; i < cars.length; i += 2) {
+    cars[i].enginePowerHP = parseInt(cars[i].enginePowerHP * 1.1);
+    cars[i].price = parseInt(cars[i].price * 1.05);
+}
+
+console.log('____________________________________');
+
+cars.forEach(function (value, index) {
+    console.log(value.enginePowerHP, value.price, value.owner.name, value.owner.expYears);
+});
+
+
+/*let anotherHP =[];
 
 for (i = 0; i < cars.length; i += 2){
     anotherHP.push(parseInt(cars[i].enginePowerHP * 1.1));
@@ -265,11 +278,12 @@ for (i = 0, j = 0; i < cars.length && i < anotherPrice.length; i = i + 2, j++){
         cars[i].price = anotherPrice[j]
 }
 
-console.log('----------------------------');
+console.log('----------------------------');*/
 
 /** 2. На відремонтовані автомобілі найняти нових водіїв (переприсвоїти змінну водій). */
 
-let newName = ['Hasan', 'Abdullah', 'Saad', 'Arsalan', ' Kashif', 'Haseeb', 'Umair', ' Waqas', 'Riaz', ' Asad'];
+
+/*let newName = ['Hasan', 'Abdullah', 'Saad', 'Arsalan', ' Kashif', 'Haseeb', 'Umair', ' Waqas', 'Riaz', ' Asad'];
 
 console.log(newName);
 
@@ -283,13 +297,14 @@ console.log('----------------------------');
 cars.forEach(function (value, index) {
     console.log(value.enginePowerHP, value.price, value.owner.name);
 
-});
+});*/
 
 
 /** 5. Після того зробити перевірку досвіду ВСІХ наших водіїв. Якщо досвід водія менший
  * за 5 років, але його вік більший за 25, то необідно відправити його на курси
  * підвищення кваліфікації, що збільшить йому досвід на 1 рік.*/
 
+/*
 let newExp = [];
 
 for (i = 0; i < cars.length; i++){
@@ -298,4 +313,4 @@ for (i = 0; i < cars.length; i++){
     }
 }
 
-console.log(newExp);
+console.log(newExp);*/
