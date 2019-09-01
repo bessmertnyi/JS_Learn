@@ -236,9 +236,6 @@ cars.forEach(function (value, index) {
     console.log(value.enginePowerHP, value.price, value.owner.name, value.owner.expYears);
 });
 
-
-let anotherHP = [];
-
 for (i = 0; i < cars.length; i += 2) {
     cars[i].enginePowerHP = parseInt(cars[i].enginePowerHP * 1.1);
     cars[i].price = parseInt(cars[i].price * 1.05);
@@ -282,6 +279,30 @@ console.log('----------------------------');*/
 
 /** 2. На відремонтовані автомобілі найняти нових водіїв (переприсвоїти змінну водій). */
 
+let newOwners = [
+    {name: 'Yan', age: 28, expYears: 15},
+    {name: 'Igor', age: 73, expYears: 7},
+    {name: 'Ira', age: 24, expYears: 5},
+    {name: 'Ivan', age: 36, expYears: 9},
+    {name: 'Viktor', age: 24, expYears: 4},
+    {name: 'Vova', age: 85, expYears: 5},
+    {name: 'Dima', age: 24, expYears: 5},
+    {name: 'Nastya', age: 15, expYears: 2},
+    {name: 'Petro', age: 24, expYears: 5},
+    {name: 'Karina', age: 18, expYears: 3}
+];
+
+for (i = 0, j = 0; i < cars.length, j < newOwners.length; i += 2, j++) {
+    cars[i].owner = newOwners[j]
+}
+
+console.log('____________________________________');
+
+cars.forEach(function (value, index) {
+    console.log(value.enginePowerHP, value.price, value.owner.name, value.owner.expYears);
+});
+
+
 
 /*let newName = ['Hasan', 'Abdullah', 'Saad', 'Arsalan', ' Kashif', 'Haseeb', 'Umair', ' Waqas', 'Riaz', ' Asad'];
 
@@ -304,8 +325,21 @@ cars.forEach(function (value, index) {
  * за 5 років, але його вік більший за 25, то необідно відправити його на курси
  * підвищення кваліфікації, що збільшить йому досвід на 1 рік.*/
 
-/*
-let newExp = [];
+cars.map(newExp => {
+    if (newExp.owner.expYears < 5 && newExp.owner.age > 25){
+        newExp.owner.expYears ++
+    }
+});
+
+console.log('____________________________________');
+
+cars.forEach(function (value, index) {
+    console.log(value.enginePowerHP, value.price, value.owner.name, value.owner.expYears);
+});
+
+
+
+/*let newExp = [];
 
 for (i = 0; i < cars.length; i++){
     if (cars[i].owner.expYears < 5 || cars[i].owner.age > 25){
@@ -314,3 +348,12 @@ for (i = 0; i < cars.length; i++){
 }
 
 console.log(newExp);*/
+
+/**  6. Також спробуйте порахувати суму, яку потрібно потратити для покупки всіх цих авто в циклі */
+
+let summ = cars.reduce(function (preValue, carValue) {
+    return preValue + carValue.price
+},0);
+
+console.log(summ);
+
