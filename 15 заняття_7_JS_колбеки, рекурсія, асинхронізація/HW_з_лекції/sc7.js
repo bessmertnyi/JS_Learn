@@ -25,7 +25,6 @@
 // disband();
 // console.log(xxx);
 
-/*
 function flattenArray(arr) {
 
     let newArr = [];
@@ -49,9 +48,12 @@ function flattenArray(arr) {
     console.log(newArr);
 }
 
-flattenArray([1,2,3,4,5,[10,20,30,[100,200,300],40,50],6,7,8]);*/
+flattenArray([1,2,3,4,5,[10,20,30,[100,[1000,2000],200,300],40,50],6,7,8]);
 
-let arr = [1,2,3,4,5,[10,20,30,[100,200,300],40,50],6,7,8];
+
+
+
+// let arr = [1,2,3,4,5,[10,20,30,[100,200,300],40,50],6,7,8];
 
 
 
