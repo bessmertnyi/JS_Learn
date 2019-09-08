@@ -49,3 +49,4 @@ function recursator3000(masyv) {
 
 let arr1 = [1,2,{name: 'Taras', car: false},3,4,5,[10,20,30,[100,200,300],40,50],6,7,8];
 recursator3000(arr1);
+recursator3000(arr1);
