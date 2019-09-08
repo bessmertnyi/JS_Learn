@@ -31,9 +31,6 @@ class User {
     // });
     //     console.log();
     // }
-
-
-
 }
 
 let Taras = new User('Taras', 29, 'man', 75, 175, 'director', 'economic', true);

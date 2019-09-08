@@ -19,11 +19,14 @@ console.log('____________________________');*/
 
 /** задача: числа Фібоначчі */
 
-function finona44i(num, callBack) {
-    if (n < 2) {
-    return num (n - 2) +  num (n - 1)
+
+function fib(max) {
+    let result = [0,1];
+
+    for (let i = 1; result[i] < max; i++){
+        result.push(result[i] + result[i - 1])
+    }
+    console.log(result);
 }
 
-};
-
-num(5);
+fib(13);
