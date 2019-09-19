@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div2 {
+            width: 200px;
+            height: 200px;
+            background: aqua;
+        }
+        .hid {
+            display: none;
+        }
+        #golovna {
+            height: 300px;
+            width: 600px;
+            display: flex;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        #bigDiv {
+            display: flex;
+        }
+        #foto1 {
+            width: 200px;
+            height: 300px;
+            background: #5264AE;
+
+        }
+        #foto2 {
+            width: 200px;
+            height: 300px;
+            background: #FFFF00;
+        }
+        #foto3 {
+            width: 200px;
+            height: 300px;
+            background: chartreuse;
+        }
+        #foto4 {
+            width: 200px;
+            height: 300px;
+            background: darkred;
+        }
+        #foto5 {
+            width: 200px;
+            height: 300px;
+            background: deeppink;
+        }
+        #foto6 {
+            width: 200px;
+            height: 300px;
+            background: skyblue;
+        }
+        .jc {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+    </style>
+</head>
+<body>
+<button id="text">Click</button>
+<div>
+    <p id="bla">bla bla bla</p>
+</div>
+
+<button id="click2">Click2</button>
+<p>_______________________________</p>
+<div>
+    <input type="text" name="age" id="input1">
+    <button id="checkAge">checkAge</button>
+</div>
+<p>_______________________________</p>
+<input type="range" id="input2" min="200" max="600" value="200">
+<div id="div2">
+</div>
+<p>_______________________________</p>
+<button id="btn5">Hidden menu</button>
+<ul id="ul1">
+    <li>menu1</li>
+    <li>menu2</li>
+    <li>menu3</li>
+</ul>
+<p>_______________________________</p>
+<ul>
+    <li id="liMess1">message1
+        <button id="btnMess1">X</button>
+    </li>
+    <li id="liMess2">message2
+        <button id="btnMess2">X</button>
+    </li>
+    <li id="liMess3">message3
+        <button id="btnMess3">X</button>
+    </li>
+</ul>
+<p>_______________________________</p>
+<div id="golovna">
+    <div id="bigDiv">
+        <div id="foto1"></div>
+        <div id="foto2"></div>
+        <div id="foto3"></div>
+        <div id="foto4"></div>
+        <div id="foto5"></div>
+        <div id="foto6"></div>
+    </div>
+</div>
+<div class="jc">
+    <button id="leftBtn"><------------------------</button>
+    <button id="rightBtn">------------------------></button>
+</div>
+<script>
+    /*    /!** 1 Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text". *!/
+        let elementById = document.getElementById('text');
+        let byBla = document.getElementById('bla');
+
+        elementById.onclick =  ()=> {
+            byBla.hidden = true
+        };*/
+
+    /*    /!** 2 Создайте кнопку, при клике на которую, она будет скрывать сама себя. *!/
+
+            let byClick2 = document.getElementById('click2');
+            byClick2.onclick = ()=> {
+            byClick2.hidden = true
+    };*/
+
+    /*    /!** 3 створити інпут який приймає вік людини та кнопку яка підтверджує дію.
+         При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18,
+         та повідомити про це користувача *!/
+
+        let input1 = document.getElementById('input1');
+        let checkAge = document.getElementById('checkAge');
+
+        checkAge.onclick = ()=> {
+            if (input1.value > 18){
+                alert('ok')
+            } else {
+                alert('no good')
+            }
+        }*/
+
+    /* /!** 4 Створити інпут з бігунком та блок 200*200, при переміщені бігунка блок збільшує свою ширину пропорційно.
+     Задати бігунку мінімальні значення в 200 максимальне в 600 *!/
+
+    let input2 = document.getElementById('input2');
+    let div2 = document.getElementById('div2');
+
+    input2.oninput = ()=> {
+        div2.style.width = `${input2.value}px`;
+        div2.style.height = `${input2.value}px`;
+    };*/
+
+    /* /!** 5 Создайте меню, которое раскрывается/сворачивается при клике: *!/
+
+    let btn5 = document.getElementById('btn5');
+    let ul1 = document.getElementById('ul1');
+
+    btn5.onclick = ()=> {
+        ul1.classList.toggle('hid')
+    }*/
+
+    /* /!** 6 Есть список сообщений. Добавьте каждому сообщению по кнопке для его скрытия. *!/
+
+   let btnMess1 = document.getElementById('btnMess1');
+   let btnMess2 = document.getElementById('btnMess2');
+   let btnMess3 = document.getElementById('btnMess3');
+
+   let liMess1 = document.getElementById('liMess1');
+   let liMess2 = document.getElementById('liMess2');
+   let liMess3 = document.getElementById('liMess3');
+
+   btnMess1.onclick = ()=> {
+       liMess1.hidden = true
+   };
+   btnMess2.onclick = ()=> {
+       liMess2.hidden = true
+   };
+    btnMess3.onclick = ()=> {
+        liMess3.hidden = true
+    };*/
+
+    /** 7 Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки. */
+
+    let leftBtn = document.getElementById('leftBtn');
+    let rightBtn = document.getElementById('rightBtn');
+
+
+
+
+
+
+</script>
+</body>
+</html>
