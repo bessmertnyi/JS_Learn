@@ -1,4 +1,4 @@
-// const fs = require('fs');
+const fs = require('fs');
 
 // fs.readFile('./file.txt', {}, (err, data)=>{   //читає файл
 //     console.log(data.toString());
@@ -44,8 +44,8 @@
 //     }
 // });
 
-// let writeStream = fs.createWriteStream('./node_js/les_1/lessons/dir/text2.txt');  // створити файл через стрім
-// writeStream.write('Hello World');
+let writeStream = fs.createWriteStream('./node_js/les_1/lessons/dir/text2.txt');  // створити файл через стрім
+writeStream.write('Hello World');
 
 // let readStream = fs.createReadStream('./node_js/les_1/lessons/dir/text2.txt');  // прочитати файл через стрім
 // readStream.on('data', function (shosi) {
@@ -98,17 +98,17 @@ const server = http.createServer((req, res) =>{
 
     switch (parseUrl.pathname) {
         case '/':
-            fs.readFile('./index1.html', (data)=> {
+            fs.readFile('./index1.html', (err, data)=> {
                 res.end(data)
             });
             break;
         case '/info':
-            fs.readFile('./info.html', (data)=> {
+            fs.readFile('./info.html', (err, data)=> {
                 res.end(data)
             });
             break;
         default:
-            fs.readFile('./404.html', (data)=> {
+            fs.readFile('./404.html', (err, data)=> {
                 res.end(data)
             });
             break
@@ -122,7 +122,7 @@ server.listen(5000, err =>{
     if (err){
         console.log('ERROR')
     } else {
-        console.log('Listen 3000')
+        console.log('Listen 5000')
     }
 });
 
