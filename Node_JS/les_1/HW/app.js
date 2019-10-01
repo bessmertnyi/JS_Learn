@@ -3,7 +3,7 @@
 В конжній папці має бути ще одна пака з імям студента а-ля Viktor Okten.
 В той файл потрібно записати інфу про студента. ЙОго данні. Довільні.
     Також на компі мають знаходитьсь фотки. ФОто потрібно скопіювати в папку з профіайлом студента стрімами.
-* Поміняти місцями студентів з 18 та з 20 години */
+* Поміняти місцями студентів з 18 та з 20 години   */
 
 const {createDir, createDirStudent} = require('./sc.js');
 
@@ -21,6 +21,7 @@ createDirStudent('jscx-2000', 'RomanBosyi', 'RomanBosyi',
 createDirStudent('jscx-1800', 'ViktorOkten', 'ViktorOkten',
     {firstName: 'Viktor', lastName: 'Kmin', age: 23
 });
+
 
 
 
