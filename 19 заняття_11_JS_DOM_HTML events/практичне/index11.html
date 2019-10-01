@@ -18,9 +18,11 @@
             display: flex;
             overflow: hidden;
             margin: 0 auto;
+            position: relative;
         }
-        #bigDiv {
+        .bigDiv {
             display: flex;
+            position: relative;
         }
         #foto1 {
             width: 200px;
@@ -56,6 +58,14 @@
         .jc {
             display: flex;
             justify-content: space-between;
+        }
+        #leftBtn {
+            height: 30px;
+            background: red;
+        }
+        #rightBtn {
+            height: 30px;
+            background: grey;
         }
 
 
@@ -98,7 +108,7 @@
 </ul>
 <p>_______________________________</p>
 <div id="golovna">
-    <div id="bigDiv">
+    <div class="bigDiv">
         <div id="foto1"></div>
         <div id="foto2"></div>
         <div id="foto3"></div>
@@ -186,6 +196,20 @@
 
     let leftBtn = document.getElementById('leftBtn');
     let rightBtn = document.getElementById('rightBtn');
+
+    let [xxx] = document.getElementsByClassName('bigDiv');
+
+    let wight = 50;
+    let a = 0;
+
+    leftBtn.onclick =()=> {
+        xxx.style.left = `${a += wight}px`;
+    };
+
+    rightBtn.onclick =()=> {
+        xxx.style.left = `${a -= wight}px`;
+    };
+
 
 
 
