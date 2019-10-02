@@ -27,33 +27,33 @@ const fs = require('fs');
 //     console.log(info);
 // });
 
-// fs.readdir('./node_js/les_1/lessons', {}, (err, files)=>{  //прочитати діректорію (папку), що в ній є
+// fs.readdir('./node_js/les_1_FS/lessons', {}, (err, files)=>{  //прочитати діректорію (папку), що в ній є
 //     console.log(files);
 // });
 
 
-// fs.rename('./node_js/les_1/lessons', './node_js/les_1/lessons', err => {  // перейменовує папки і файли
+// fs.rename('./node_js/les_1_FS/lessons', './node_js/les_1_FS/lessons', err => {  // перейменовує папки і файли
 // //     if (!err){
 // //         console.log('ok');
 // //     }
 // // });
 
-// fs.mkdir('./node_js/les_1/lessons/dir', {}, err => { // make dir - створити діректорію (папку)
+// fs.mkdir('./node_js/les_1_FS/lessons/dir', {}, err => { // make dir - створити діректорію (папку)
 //     if (!err){
 //         console.log('OK');
 //     }
 // });
 
-let writeStream = fs.createWriteStream('./node_js/les_1/lessons/dir/text2.txt');  // створити файл через стрім
+let writeStream = fs.createWriteStream('./node_js/les_1_FS/lessons/dir/text2.txt');  // створити файл через стрім
 writeStream.write('Hello World');
 
-// let readStream = fs.createReadStream('./node_js/les_1/lessons/dir/text2.txt');  // прочитати файл через стрім
+// let readStream = fs.createReadStream('./node_js/les_1_FS/lessons/dir/text2.txt');  // прочитати файл через стрім
 // readStream.on('data', function (shosi) {
 //     console.log(shosi.toString());
 // });
 
-/*let writeStream = fs.createWriteStream('./node_js/les_1/lessons/dir/test222.txt');  // створити файл через стрім
-let readStream = fs.createReadStream('./node_js/les_1/lessons/dir/text.txt');  // скопіювати з старого файла в новий
+/*let writeStream = fs.createWriteStream('./node_js/les_1_FS/lessons/dir/test222.txt');  // створити файл через стрім
+let readStream = fs.createReadStream('./node_js/les_1_FS/lessons/dir/text.txt');  // скопіювати з старого файла в новий
 readStream.on('data', function (blabla) {
     writeStream.write(blabla)
 });
@@ -62,7 +62,7 @@ readStream.on('data', function (blabla) {
 console.log('Ok');*/
 
 // // перенаправляє зразу дані в новий файл
-// fs.createReadStream('./node_js/les_1/lessons/dir/text.txt').pipe(fs.createWriteStream('./node_js/les_1/lessons/dir/Newtext.txt'));
+// fs.createReadStream('./node_js/les_1_FS/lessons/dir/text.txt').pipe(fs.createWriteStream('./node_js/les_1_FS/lessons/dir/Newtext.txt'));
 // console.log('ok');
 
 // створення ПОМИЛКИ throw new Error

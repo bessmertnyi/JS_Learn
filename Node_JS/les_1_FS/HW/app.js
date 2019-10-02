@@ -28,4 +28,3 @@ createDirStudent('jscx-1800', 'ViktorOkten', 'ViktorOkten',
 
 
 
-
