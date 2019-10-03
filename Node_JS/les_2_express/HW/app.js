@@ -3,10 +3,16 @@ const expHbs = require('express-handlebars');
 const path = require('path'); //  бібліотека яка працює зі шляхами (назвами папок)
 
 const app = express();
+
 app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+const user = [];
 
 app.engine('.hbs', expHbs({
-    extname: '.hbs' // обробляє файли .хбс
+    extname: '.hbs', // обробляє файли .хбс
+    defaultLayout: null
 }));
 
 app.set('view engine', '.hbs'); // використовувати двіхок engine для файлів .хбс
@@ -24,13 +30,27 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    res.end("OK");
-    console.log('OK 3000');
+    res.render('login')
+});
+app.post('/login', (req, res) => {
+    const body = body.req;
+    // user.forEach(user => {
+    //     if ()
+    // });
+
+    res.render('login')
 });
 
 app.get('/register', (req, res) => {
-    res.end("OK");
-    console.log('OK 3000');
+       res.render('register')
+});
+
+app.post('/register', (req, res) => {
+    const body = req.body;
+    body['user_id'] = user.length + 1;
+    user.push('bosy');
+    console.log(body);
+    res.render('register')
 });
 
 app.all('*', (req, res) => {
@@ -39,5 +59,5 @@ app.all('*', (req, res) => {
 
 
 app.listen(3000, () => {
-    console.log('H E L L O W');
+    console.log('R U N');
 });
