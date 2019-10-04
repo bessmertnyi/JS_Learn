@@ -6,13 +6,13 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'static')));
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true})); // розпізнає той JSON ))
 
-const user = [];
+const users = [];
 
-app.engine('.hbs', expHbs({
+app.engine('.hbs', expHbs({ // двіжок
     extname: '.hbs', // обробляє файли .хбс
-    defaultLayout: null
+    defaultLayout: null // фіксить папку Layout
 }));
 
 app.set('view engine', '.hbs'); // використовувати двіхок engine для файлів .хбс
@@ -20,37 +20,42 @@ app.set('views', path.join(__dirname, 'static')); // шлях до всіх 'в�
 
 app.get('/', (req, res) => {
     res.render('main');
-
-    // res.end("OK");
-    // console.log('OK 3000');
-
-    // console.log(__dirname);  шлях до папки
-    // console.log(__filename);
-
+    // console.log(__dirname);  // шлях до папки
+    // console.log(__filename);  // шлях до файлу
 });
 
 app.get('/login', (req, res) => {
     res.render('login')
 });
-app.post('/login', (req, res) => {
-    const body = body.req;
-    // user.forEach(user => {
-    //     if ()
-    // });
 
-    res.render('login')
+app.post('/login', (req, res) => {
+    const log = req.body;
+    users.forEach(search => {
+        if (search.userName === log.name && search.userPassword === log.password) {
+            res.redirect(`/user/${search.user_id}`)
+        } else {
+            res.json('NOT PAGE, 404')
+        }
+    });
+});
+
+app.get('/user/:id', (req, res) => {
+    const userSearch = users.find(ses =>
+        +req.params.id === ses.user_id
+);
+    console.log(req.params);
+    res.json(userSearch)
 });
 
 app.get('/register', (req, res) => {
-       res.render('register')
+    res.render('register')
 });
 
 app.post('/register', (req, res) => {
-    const body = req.body;
-    body['user_id'] = user.length + 1;
-    user.push('bosy');
-    console.log(body);
-    res.render('register')
+    const user = req.body;
+    user.user_id = users.length + 1;
+    users.push(user);
+    console.log(user);
 });
 
 app.all('*', (req, res) => {
@@ -59,5 +64,5 @@ app.all('*', (req, res) => {
 
 
 app.listen(3000, () => {
-    console.log('R U N');
+    console.log('R U N  -  3 0 0 0');
 });
