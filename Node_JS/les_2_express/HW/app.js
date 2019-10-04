@@ -42,7 +42,7 @@ app.post('/login', (req, res) => {
 app.get('/user/:id', (req, res) => {
     const userSearch = users.find(ses =>
         +req.params.id === ses.user_id
-);
+    );
     console.log(req.params);
     res.json(userSearch)
 });
@@ -61,7 +61,6 @@ app.post('/register', (req, res) => {
 app.all('*', (req, res) => {
     res.json('NOT PAGE, 404')
 });
-
 
 app.listen(3000, () => {
     console.log('R U N  -  3 0 0 0');
