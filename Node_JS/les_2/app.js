@@ -8,8 +8,6 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.use(express.json());
 app.use(express.urlencoded({extended: true})); // розпізнає той JSON ))
 
-const users = [];
-const houses = [];
 
 app.engine('.hbs', expHbs({ // двіжок
     extname: '.hbs', // обробляє файли .хбс
@@ -19,31 +17,19 @@ app.engine('.hbs', expHbs({ // двіжок
 app.set('view engine', '.hbs'); // використовувати двіхок engine для файлів .хбс
 app.set('views', path.join(__dirname, 'static')); // шлях до всіх 'вюшок', де вони лежать
 
-app.get('/', (req, res) => {
-    res.render('main');
-    // console.log(__dirname);  // шлях до папки
-    // console.log(__filename);  // шлях до файлу
-});
+const { user, render } = require('./controllers');   // --> підключення контролерів
 
-app.get('/login', (req, res) => {
-    res.render('login')
-});
+// let {user: userMiddleware} = require('./middleware/index');   // --> підключення middleware
+let { provider } = require('./dataBase');   // --> підключення dataBase
 
-app.get('/register', (req, res) => {
-    res.render('register')
-});
+app.get('/', render.renderMain);
+app.get('/login', render.renderLogin);
+app.get('/register', render.renderRegister);
+app.get('/house', render.renderHouse);
 
-app.get('/house', (req, res) => {
-    res.render('house')
-});
+app.post('/register', user.createUser);
 
-
-app.post('/register', (req, res) => {
-    const user = req.body;
-    user.user_id = users.length + 1;
-    users.push(user);
-    console.log(user);
-});
+/*app.post('/register', user.createUser);*/
 
 app.post('/house', (req, res) => {
     const newHouse = req.body;
@@ -54,12 +40,11 @@ app.post('/house', (req, res) => {
     // res.redirect(`/house/${newHouse.house_id}`)
 });
 
-app.get('/user/:id', (req, res) => {
+app.get('/user/:userId', (req, res) => {
     const userSearch = users.find(ses =>
-        +req.params.id === ses.user_id
+        +req.params.userId === ses.user_id
     );
-    console.log(req.params);
-    res.json(userSearch)
+    userSearch ? res.json(userSearch) : res.status(400).render('not find');
 });
 
 app.get('/house/:id', (req, res) => {
@@ -67,22 +52,10 @@ app.get('/house/:id', (req, res) => {
         +req.params.id === oeo.house_id
     );
     console.log(req.params);
-    res.json(houseSearch)
+    res.json(houseSearch);
 });
 
-app.post('/login', (req, res) => {
-    const log = req.body;
-
-    const foundUser = users.find(search => search.userName === log.name && search.userPassword === log.password);
-    foundUser ? res.redirect(`/user/${foundUser.user_id}`) : res.status(404).render('NOT PAGE, 404')
-    /*users.forEach(search => {
-        if (search.userName === log.name && search.userPassword === log.password) {
-            res.redirect(`/user/${search.user_id}`)
-        } else {
-            res.json('NOT PAGE, 404')
-        }
-    });*/
-});
+app.post('/login',user.userLogin);
 
 app.post('/search', (req, res) => {
     const info = req.body;
@@ -92,7 +65,11 @@ app.post('/search', (req, res) => {
 
 });
 
-app.all('*', (req, res) => {
+app.all('*', async (req, res) => {
+    // let [query] = await provider.promise().query('SELECT * FROM client');
+    // console.log(query[2]);
+    // res.json(query[0]);
+
     res.json('NOT PAGE, 404')
 });
 
