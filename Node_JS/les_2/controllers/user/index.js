@@ -1,11 +1,12 @@
 const createUser = require('./createUser');
-// const getUserById = require('./getUserById');
 const userLogin = require('./userLogin');
+const userById = require('./getUserById')
 
 
 module.exports = {
     createUser,
-    userLogin
+    userLogin,
+    userById
 };
 
 /*

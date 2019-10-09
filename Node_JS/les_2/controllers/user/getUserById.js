@@ -1,3 +1,13 @@
+module.exports = (req, res) => {
+    const user = req.goodLog;
+
+    res.json(user);
+};
+
+
+
+
+
 // module.exports = (req, res) => {
 //     const userSearch = users.find(ses =>
 //         +req.params.userId === ses.user_id

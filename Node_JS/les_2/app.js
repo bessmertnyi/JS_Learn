@@ -18,8 +18,7 @@ app.set('view engine', '.hbs'); // використовувати двіхок e
 app.set('views', path.join(__dirname, 'static')); // шлях до всіх 'вюшок', де вони лежать
 
 const { user, render } = require('./controllers');   // --> підключення контролерів
-
-// let {user: userMiddleware} = require('./middleware/index');   // --> підключення middleware
+const {user: userMiddleware} = require('./middleware/index');   // --> підключення middleware
 let { provider } = require('./dataBase');   // --> підключення dataBase
 
 app.get('/', render.renderMain);
@@ -27,24 +26,17 @@ app.get('/login', render.renderLogin);
 app.get('/register', render.renderRegister);
 app.get('/house', render.renderHouse);
 
-app.post('/register', user.createUser);
+app.post('/register', userMiddleware.checkUserValidityMiddleware, user.createUser);
+app.post('/login',userMiddleware.checkLoginMiddleware, user.userLogin);
 
-/*app.post('/register', user.createUser);*/
+app.get('/user/:userId', userMiddleware.checkUserIdMiddleware, user.userById);
 
 app.post('/house', (req, res) => {
     const newHouse = req.body;
     newHouse.house_id = houses.length + 1;
     houses.push(newHouse);
     console.log(newHouse);
-
     // res.redirect(`/house/${newHouse.house_id}`)
-});
-
-app.get('/user/:userId', (req, res) => {
-    const userSearch = users.find(ses =>
-        +req.params.userId === ses.user_id
-    );
-    userSearch ? res.json(userSearch) : res.status(400).render('not find');
 });
 
 app.get('/house/:id', (req, res) => {
@@ -55,20 +47,18 @@ app.get('/house/:id', (req, res) => {
     res.json(houseSearch);
 });
 
-app.post('/login',user.userLogin);
-
 app.post('/search', (req, res) => {
     const info = req.body;
 
     const foundHouse = houses.find(search => search.city === info.city);
     foundHouse ? res.redirect(`/house/${foundHouse.house_id}`) : res.status(404).render('NOT PAGE, 404')
-
 });
 
 app.all('*', async (req, res) => {
-    // let [query] = await provider.promise().query('SELECT * FROM client');
-    // console.log(query[2]);
-    // res.json(query[0]);
+
+    /*let [query] = await provider.promise().query('SELECT * FROM user');
+    console.log(query[0]);
+    res.json(query[0]);*/
 
     res.json('NOT PAGE, 404')
 });
