@@ -6,3 +6,4 @@ module.exports = async  (req, res) => {
     await provider.promise().query(query, [name, email, password]);
     res.render('register')
 };
+22
