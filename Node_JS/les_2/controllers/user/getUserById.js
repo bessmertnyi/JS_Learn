@@ -21,3 +21,13 @@ module.exports = (req, res) => {
 //
 //     res.json(user);
 // }
+
+
+/*
+(req, res) => {
+    const houseSearch = houses.find(oeo =>
+        +req.params.id === oeo.house_id
+    );
+    console.log(req.params);
+    res.json(houseSearch);
+});*/

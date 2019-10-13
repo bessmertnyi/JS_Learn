@@ -17,9 +17,10 @@ app.engine('.hbs', expHbs({ // двіжок
 app.set('view engine', '.hbs'); // використовувати двіхок engine для файлів .хбс
 app.set('views', path.join(__dirname, 'static')); // шлях до всіх 'вюшок', де вони лежать
 
-const { user, render } = require('./controllers');   // --> підключення контролерів
-const {user: userMiddleware} = require('./middleware/index');   // --> підключення middleware
-let { provider } = require('./dataBase');   // --> підключення dataBase
+const {user, render, house} = require('./controllers');   // --> підключення контролерів
+const {user: userMiddleware, house: houseMiddleware} = require('./middleware/index');   // --> підключення middleware
+
+let {provider} = require('./dataBase');   // --> підключення dataBase
 
 app.get('/', render.renderMain);
 app.get('/login', render.renderLogin);
@@ -27,32 +28,15 @@ app.get('/register', render.renderRegister);
 app.get('/house', render.renderHouse);
 
 app.post('/register', userMiddleware.checkUserValidityMiddleware, user.createUser);
-app.post('/login',userMiddleware.checkLoginMiddleware, user.userLogin);
+app.post('/login', userMiddleware.checkLoginMiddleware, user.userLogin);
 
 app.get('/user/:userId', userMiddleware.checkUserIdMiddleware, user.userById);
 
-app.post('/house', (req, res) => {
-    const newHouse = req.body;
-    newHouse.house_id = houses.length + 1;
-    houses.push(newHouse);
-    console.log(newHouse);
-    // res.redirect(`/house/${newHouse.house_id}`)
-});
+app.post('/house', house.createHouse);
+app.post('/search', houseMiddleware.checkHouseMiddleware, house.searchHouse);
 
-app.get('/house/:id', (req, res) => {
-    const houseSearch = houses.find(oeo =>
-        +req.params.id === oeo.house_id
-    );
-    console.log(req.params);
-    res.json(houseSearch);
-});
+app.get('/house/:id', houseMiddleware.checkHouseIdMiddleware, house.houseById);
 
-app.post('/search', (req, res) => {
-    const info = req.body;
-
-    const foundHouse = houses.find(search => search.city === info.city);
-    foundHouse ? res.redirect(`/house/${foundHouse.house_id}`) : res.status(404).render('NOT PAGE, 404')
-});
 
 app.all('*', async (req, res) => {
 

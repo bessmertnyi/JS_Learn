@@ -4,6 +4,7 @@ module.exports = async (req, res, next) => {
     try {
         const { userId } = req.params;
         const userIdSearch = `SELECT * FROM user WHERE id = ?`;
+
         const [searchId] = await provider.promise().query(userIdSearch, [userId]);
 
 
