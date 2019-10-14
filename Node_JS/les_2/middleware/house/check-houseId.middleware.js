@@ -7,8 +7,8 @@ module.exports = async (req, res, next) => {
 
         const [validHouseId] = await provider.promise().query(houseIdSearch, [houseId]);
 
-        if (!searchId.length) {
-            throw new Error('nor found house!')
+        if (!houseId.length) {
+            throw new Error('not found house!')
         }
 
         [req.houseValidId] = validHouseId;
