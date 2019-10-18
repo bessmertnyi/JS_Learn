@@ -1,6 +1,7 @@
 const createHouse = require('./createHouse');
 const houseById = require('./houseById');
 const searchHouse = require('./searchHouse');
+const updateHouses = require('./updateHouse');
 
 
 
@@ -8,6 +9,6 @@ const searchHouse = require('./searchHouse');
 module.exports = {
   createHouse,
   houseById,
-  searchHouse
-
+  searchHouse,
+  updateHouses
 };

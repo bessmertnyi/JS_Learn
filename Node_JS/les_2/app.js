@@ -26,16 +26,19 @@ app.get('/', render.renderMain);
 app.get('/login', render.renderLogin);
 app.get('/register', render.renderRegister);
 app.get('/house', render.renderHouse);
+app.get('/updateUser', render.renderUpdateUser);
+app.get('/updateHouse', render.renderUpdateHouse);
 
 app.post('/register', userMiddleware.checkUserValidityMiddleware, user.createUser);
 app.post('/login', userMiddleware.checkLoginMiddleware, user.userLogin);
-
-app.get('/user/:userId', userMiddleware.checkUserIdMiddleware, user.userById);
-
 app.post('/house', house.createHouse);
 app.post('/search', houseMiddleware.checkHouseMiddleware, house.searchHouse);
+app.post('/updateUser',userMiddleware.checkUserValidityMiddleware, userMiddleware.checkUserUpdateIdMiddleware, user.updateUsers);
+app.post('/updateHouse', houseMiddleware.checkHouseUpdateIdMiddleware, houseMiddleware.checkHouseUpdateIdMiddleware, house.updateHouses);
 
-app.get('/house/:id', houseMiddleware.checkHouseIdMiddleware, house.houseById);
+
+app.get('/user/:userId', userMiddleware.checkUserIdMiddleware, user.userById);
+app.get('/house/:houseId', houseMiddleware.checkHouseIdMiddleware, house.houseById);
 
 
 app.all('*', async (req, res) => {

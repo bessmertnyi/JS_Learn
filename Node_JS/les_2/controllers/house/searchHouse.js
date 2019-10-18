@@ -1,7 +1,7 @@
 module.exports = (req, res) => {
     const {id} = req.houseValid;
 
-    res.render(`house/${id}`)
+    res.redirect(`house/${id}`)
 };
 
 
