@@ -1,0 +1,1 @@
+module.exports.authServiceFindingUser = require('./authServiceFindingUser');
