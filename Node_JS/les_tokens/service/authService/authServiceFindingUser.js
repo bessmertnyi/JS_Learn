@@ -10,5 +10,6 @@ module.exports = async (email, password) => {
         },
         attributes: ['id']
     });
+
     return findingUser && findingUser.dataValues;
 };
