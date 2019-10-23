@@ -4,8 +4,8 @@ const {house} = require('../../controllers');
 const {house: houseMiddleware} = require('../../middleware');
 
 router.post('/', house.createHouse);
-router.get('/:houseID', houseMiddleware.checkHousePresentMiddleware, house.houseById);
-router.put('/:houseID', houseMiddleware.checkHousePresentMiddleware, house.updateHouses);
-router.delete('/:houseID', house.deleteHouse);
+router.get('/:id', houseMiddleware.checkHousePresentMiddleware, house.houseById);
+router.put('/:id', houseMiddleware.checkHousePresentMiddleware, house.updateHouses);
+router.delete('/:id', house.deleteHouse);
 
 module.exports = router;

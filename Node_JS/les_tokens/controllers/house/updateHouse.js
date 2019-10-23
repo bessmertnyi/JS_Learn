@@ -1,16 +1,11 @@
-const db = require('../../database').getInstance();
+const {houseService} = require('../../service');
 
 module.exports = async (req, res) => {
     try {
         const {houseID} = req.params;
         const houseNew = req.body;
-        const houseModel = db.getModel('House');
 
-        await houseModel.update(houseNew, {
-            where: {
-                id: houseID
-            }
-        });
+        const updatingHouse = await houseService.updateHouseService(id, houseNew);
 
         res.json('house updated');
     } catch (e) {

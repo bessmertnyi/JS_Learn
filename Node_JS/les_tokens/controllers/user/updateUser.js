@@ -1,14 +1,11 @@
-const db = require('../../database').getInstance();
+const userService = require('../../service');
 
 module.exports = async (req, res) => {
     try {
         const {id} = req.params;
         const UserNew = req.body;
-        const UserModel = db.getModel('User');
 
-        await UserModel.update(UserNew,
-            {where: {id}}
-        );
+        const updatingUser = await userService.userService.updateUserService(id, UserNew);
 
         res.json('User updated');
     } catch (e) {

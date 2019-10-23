@@ -1,17 +1,12 @@
-const db = require('../../database').getInstance();
+const {houseService} = require('../../service');
 
 module.exports = async (req, res) => {
     try {
-        const {houseID} = req.params;
-        const modelOfHouse = db.getModel('House');
+        const {id} = req.params;
 
-        modelOfHouse.destroy({
-            where: {
-                id: houseID
-            }
-        });
+        const deleteHouse = await houseService.deleteHouseService(id);
 
-        res.json(`house with ${houseID} has been delete`)
+        res.json(`house with ${id} has been delete`)
     } catch (e) {
         res.status(400).json(e.message)
     }

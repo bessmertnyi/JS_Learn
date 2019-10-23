@@ -1,11 +1,10 @@
-const db = require('../../database').getInstance();
+const {houseService} = require('../../service');
 
 module.exports = async (req, res) => {
     try {
         const houseToCreate = req.body;
-        const modelOfHouse = db.getModel('House');
 
-        await modelOfHouse.create(houseToCreate);
+        const createHouse = await houseService.createHouseService(houseToCreate);
 
         res.json('create new house')
     } catch (e) {

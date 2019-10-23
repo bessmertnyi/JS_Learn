@@ -1,14 +1,13 @@
-const db = require('../../database').getInstance();
+const {houseService} = require('../../service');
 
 module.exports = async (req, res, next) => {
     try {
-        const {houseID} = req.params;
-        const modelOfHouse = db.getModel('House');
+        const {id} = req.params;
 
-        let presentHouse = await modelOfHouse.findByPk(houseID);
+        const presentHouse = await houseService.checkHousePresentService(id);
 
         if (!presentHouse) {
-            throw new Error(`house with ${houseID} is not present `)
+            throw new Error(`house with ${id} is not present `)
         }
 
         req.house = presentHouse;

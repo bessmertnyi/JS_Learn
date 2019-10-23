@@ -1,15 +1,10 @@
-const db = require('../../database').getInstance();
+const userService = require('../../service');
 
 module.exports = async (req, res) => {
     try {
         const {id} = req.params;
-        const modelOfUser = db.getModel('User');
 
-        modelOfUser.destroy({
-            where: {
-                id: id
-            }
-        });
+        const deletingUser = userService.userService.deleteUserService(id);
 
         res.json(`user with ${id} has been delete`)
     } catch (e) {

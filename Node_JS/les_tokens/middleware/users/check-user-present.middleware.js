@@ -3,6 +3,7 @@ const {userService} = require('../../service');
 module.exports = async (req, res, next) => {
     try {
         const {id} = req.params;
+
         const presentUser = await userService.checkUserPresentService(id);
 
         if (!presentUser) {
