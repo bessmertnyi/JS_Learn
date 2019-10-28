@@ -52,11 +52,13 @@ export class Vr {
         fr.addDeputat(dep)
     }
 
-    delDepWithFr (nameFr: Frakcia, dep: string) {
+    delDepWithFr (nameFr: Frakcia, lastName: string) {
         if (nameFr) {
-            nameFr.delDeputat(dep)
+            nameFr.delDeputat(lastName)
         }
     }
+
+    // showAllGrafterDepTo
 
 
 
